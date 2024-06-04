@@ -3,6 +3,7 @@ import './index.css';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, signOut } from './firebaseConfig/firebase'; 
+import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -13,14 +14,20 @@ export const Navbar = () => {
     });
   };
 
+    const navigate=useNavigate();
+    const handleHome=()=>{
+      navigate('/')
+    }
+
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="src/assets/images/alpha-logo.png" alt="Logo" />
+        <img src="src/assets/images/alpha-logo.png" alt="Logo" onClick={handleHome} />
       </div>
       <div className="navbar-links">
         <Link to="/">Home</Link>
-        <Link to="/passes">Buy Passes</Link>
+        <Link to="/pago">Buy Passes</Link>
         <Link to="/contact">Contact Us</Link>
         <Link to="/mypasses">My Passes</Link>
         {user ? (
