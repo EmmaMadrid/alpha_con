@@ -3,11 +3,11 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { db2 } from '../firebaseConfig/firebase2'
 import { useEffect } from 'react'
 import { getDocs, doc, deleteDoc } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { db } from '../firebaseConfig/firebase'
 
 const MySwal = withReactContent(Swal)
 
@@ -16,7 +16,7 @@ export const Pago = () => {
   // 1
   const [products, setProducts] = useState([])
   // 2
-  const productsCollection = collection(db2, "products")
+  const productsCollection = collection(db, "products")
   // 3
   const getProducts = async () => {
     const data = await getDocs(productsCollection)
@@ -24,7 +24,7 @@ export const Pago = () => {
   }
   // 4
   const deleteProduct = async (id) => {
-    const productDoc = doc(db2, "products", id)
+    const productDoc = doc(db, "products", id)
     await deleteDoc(productDoc)
     getProducts()
   }
@@ -66,9 +66,6 @@ export const Pago = () => {
           <div className='card'>
             <div className='card-body'>
 
-              {/* <div className='d-grid gap-2'>
-                <Link to="/FirebaseImageUpload" className='btn btn-secondary mt-2'>Subir Imagenes</Link>
-              </div> */}
 
               <table className='table table-darktable-hover'>
                 <thead>
