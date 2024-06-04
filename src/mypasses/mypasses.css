@@ -1,0 +1,106 @@
+body.homeb-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .home1 {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .homeb-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .homeb-box h2,
+  .homeb-box h3,
+  .homeb-box h4,
+  .homeb-box p {
+    margin-bottom: 1rem;
+    font-size: 2em;
+  }
+  
+  .homeb-box p {
+    margin-bottom: 2rem;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .logo-insta,
+  .logo-face {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .logo-insta {
+    margin-right: 10px;
+  }
+  
+  .logo-face {
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .homeb-box {
+      padding: 1rem;
+      max-width: 90%;
+    }
+  
+    .homeb-box h2,
+    .homeb-box h3,
+    .homeb-box h4,
+    .homeb-box p {
+      font-size: 1.5em;
+    }
+  
+    .logo-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .logo-insta,
+    .logo-face {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .homeb-box h2,
+    .homeb-box h3,
+    .homeb-box h4,
+    .homeb-box p {
+      font-size: 1.2em;
+    }
+  
+    .logo-insta,
+    .logo-face {
+      width: 100px;
+      height: 100px;
+    }
+  }

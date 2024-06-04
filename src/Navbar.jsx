@@ -20,10 +20,11 @@ export const Navbar = () => {
       </div>
       <div className="navbar-links">
         <Link to="/">Home</Link>
-        <Link to="/passes">Passes</Link>
-        <Link to="/contact mr-2">Contact Us</Link>
+        <Link to="/passes">Buy Passes</Link>
+        <Link to="/contact">Contact Us</Link>
         {user ? (
           <div className="navbar-user">
+            <Link to="/mypasses">My Passes</Link>
             <span className="navbar-username">Hola!, {user.displayName || user.email}</span>
             <button className="navbar-signout" onClick={handleSignOut}>Sign Out</button>
           </div>
