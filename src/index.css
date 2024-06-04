@@ -88,3 +88,11 @@ body {
 .navbar-signin:hover, .navbar-signup:hover {
   background-color: #7b33e7;
 }
+
+.navbar-signout{
+  margin-right: 30px;
+}
+
+.navbar-username{
+  margin-right: 30px;
+}

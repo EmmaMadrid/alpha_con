@@ -22,11 +22,10 @@ export const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/passes">Buy Passes</Link>
         <Link to="/contact">Contact Us</Link>
+        <Link to="/mypasses">My Passes</Link>
         {user ? (
           <div className="navbar-user">
-            <Link to="/mypasses">My Passes</Link>
             <span className="navbar-username">Hola!, {user.displayName || user.email}</span>
-            <button className="navbar-signout" onClick={handleSignOut}>Sign Out</button>
           </div>
         ) : (
           <>
@@ -34,6 +33,7 @@ export const Navbar = () => {
             <Link to="/register" className="navbar-signup">Sign Up</Link>
           </>
         )}
+        <button className="navbar-signout" onClick={handleSignOut}>Sign Out</button>
       </div>
     </nav>
   );

@@ -6,6 +6,7 @@ import { Registerpage } from '../register/Registerpage'
 import { Contactpage } from '../contact/Contactpage'
 import { Mypasses } from '../mypasses/Mypasses'
 import { Route, Routes } from 'react-router-dom'
+import { Pago } from '../Pagos/Pago'
 
 export const AppRouter = () => {
   return (
@@ -17,6 +18,8 @@ export const AppRouter = () => {
             <Route path='register' element= {<Registerpage/>} />
             <Route path='contact' element= {<Contactpage/>} />
             <Route path='mypasses' element= {<Mypasses/>} />
+            <Route path='pago' element= {<Pago/>} />
+
         </Routes>
     </>
   )
