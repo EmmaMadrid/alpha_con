@@ -4,13 +4,12 @@ import { getStorage } from "firebase/storage";
 import { getAuth, signOut } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD7ZT4O7fSUd-tsRNzFhwHesTRqlTtLcvE",
-  authDomain: "examen-api-2ede4.firebaseapp.com",
-  databaseURL: "https://examen-api-2ede4-default-rtdb.firebaseio.com",
-  projectId: "examen-api-2ede4",
-  storageBucket: "examen-api-2ede4.appspot.com",
-  messagingSenderId: "482087744118",
-  appId: "1:482087744118:web:e9ccf8dd545d25f384a557"
+  apiKey: "AIzaSyAEURXoi4vOxYapn6KGdic9Je_5k37bUws",
+  authDomain: "alpha-con.firebaseapp.com",
+  projectId: "alpha-con",
+  storageBucket: "alpha-con.appspot.com",
+  messagingSenderId: "541724964094",
+  appId: "1:541724964094:web:7f899d06cd48dbd57ce1af"
 };
 
 const app = initializeApp(firebaseConfig);
