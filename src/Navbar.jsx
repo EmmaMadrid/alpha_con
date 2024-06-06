@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -27,6 +27,19 @@ export const Navbar = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isOpen]);
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -34,11 +47,11 @@ export const Navbar = () => {
       </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/passes" onClick={closeMenu}>Buy Passes</Link>
+        <Link to="/Pago" onClick={closeMenu}>Buy Passes</Link>
         <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
         <Link to="/mypasses" onClick={closeMenu}>My Passes</Link>
         {user ? (
-          <div className="navbar-user">
+          <div className={`navbar-user ${isOpen ? '' : 'desktop'}`}>
             <span className="navbar-username">Hola!, {user.displayName || user.email}</span>
             <button className="navbar-signout" onClick={handleSignOut}>Sign Out</button>
           </div>
