@@ -11,13 +11,14 @@
   .event_image{
     position: relative;
     padding: 20px;
-    width: 650px;
     margin-right: 20px;
+    max-width: 650px;
+    height: auto;
   }
   .event_image img{
     border-radius: 15px;
-    width: 100%;
-    width: 550px ;
+    max-width: 100%;
+    height: auto;
   }
   .content {
     margin-left: 20px;
@@ -28,8 +29,8 @@
     align-items: center;
   }
   .titulo{
-    width: 100%;
-    width: 450px;
+    max-width: 100%;
+    height: auto;
   }
   p{
     font-size: 22px;
