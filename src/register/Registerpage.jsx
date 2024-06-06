@@ -36,7 +36,7 @@ export const Registerpage = () => {
       icon: 'success',
       confirmButtonText: 'Ok'
     }).then(() => {
-      navigate('/Login');
+      navigate('/');
     });
   };
 
