@@ -47,8 +47,8 @@ export const Mypasses = () => {
     }, []);
 
     // Función para generar el código QR
-    const generarCodigoQR = async (fecha, hora, nombre, tipoBoleto) => {
-        const textoQR = `Fecha: ${fecha}\nHora: ${hora}\nNombre: ${nombre}\nTipo de Boleto: ${tipoBoleto}`;
+    const generarCodigoQR = async (key) => {
+        const textoQR = `localhost:5173/boleto/${key}`;
         try {
             const qrCodeDataURL = await QRCode.toDataURL(textoQR);
             return qrCodeDataURL;
