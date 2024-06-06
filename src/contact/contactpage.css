@@ -21,16 +21,10 @@ body.homeb-page {
   justify-content: center;
   align-items: center;
 }
-
-.homeb-box {
-  background: rgba(0, 0, 0, 0.8);
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: center;
+.homeb-box{
   max-width: 600px;
-  width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0);
 }
+
 .homeb-box p {
   margin-bottom: 1rem;
   font-size: 2em;
@@ -63,4 +57,7 @@ body.homeb-page {
 
 .logo-face {
   margin-left: 10px;
+}
+.home1{
+  
 }
