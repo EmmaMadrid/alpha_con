@@ -15,7 +15,7 @@ export function Rutaqr() {
         const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos/${folio}.json`);
         setBoleto(response.data);
         console.log(folio)
-        console.log(boleto)
+        console.log(response.data)
       } catch (err) {
         console.error("Error fetching boleto", err);
       }
@@ -26,7 +26,8 @@ export function Rutaqr() {
 
   return (
     <div className="rutaqr-container">
-      <h2 className="rutaqr-title">El folio del boleto es: {folio}</h2>
+      <h2 className="rutaqr-title">FOLIO DEL BOLETO: {folio}</h2>
+      <button>PERFORAR</button>
     </div>
   );
 }
