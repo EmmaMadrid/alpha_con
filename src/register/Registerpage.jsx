@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import './registerpage.css';
 import { auth } from '../firebaseConfig/firebase';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 export const Registerpage = () => {
@@ -11,12 +11,18 @@ export const Registerpage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate(); // Use useNavigate to define navigate
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
+    
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log('User registered:', user);
+      // Call registro function after successful registration
+      registro();
     } catch (error) {
       setError(error.message);
       console.error('Error registering user:', error);
@@ -32,14 +38,16 @@ export const Registerpage = () => {
     }).then(() => {
       navigate('/Login');
     });
-  }
+  };
 
   return (
     <div className="register-container">
       <div className="register-box">
         <h2>Sign Up</h2>
         <p>Create an account</p>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className=" error-message"
+        style={{color: "red"}}
+        >{error}</p>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="fullname">NOMBRE</label>
           <input
@@ -70,7 +78,7 @@ export const Registerpage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           
-          <button type="submit" onClick={registro}>Registrarse</button>
+          <button type="submit">Registrarse</button>
         </form>
       </div>
     </div>
