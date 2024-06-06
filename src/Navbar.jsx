@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './index.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, signOut } from './firebaseConfig/firebase';
 
 export const Navbar = () => {
+  const navigate=useNavigate()
+  const handleLogoHome=()=>{
+    navigate('/')
+  }
   const [user] = useAuthState(auth);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +30,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="src/assets/images/alpha-logo.png" alt="Logo" />
+        <img src="src/assets/images/alpha-logo.png" alt="Logo" onClick={handleLogoHome}/>
       </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <Link to="/" onClick={closeMenu}>Home</Link>
