@@ -24,6 +24,19 @@ export function Rutaqr() {
     fetchBoleto();
   }, [folio]);
 
+  const desactivarBoleto = async () => {
+    try{
+    await axios.patch(`https://alpha-con-default-rtdb.firebaseio.com/boletos/${folio}.json`, {
+      estado: "INACTIVO"
+    });
+    alert("EL BOLETO FUE DESACTIVADO EXITOSAMENTE")
+    window.location.reload();
+  } catch (err) {
+    console.error("Error desactivando boleto", err);
+  }
+  }
+  
+
   return (
     <div className="rutaqr-container">
       <h2 className="rutaqr-title">FOLIO DEL BOLETO: {folio}</h2>
@@ -32,7 +45,7 @@ export function Rutaqr() {
       <h2>NOMBRE: {boleto.nombre}</h2>
       <h2>TIPO DE BOLETO: {boleto.tipoBoleto}</h2>
       <h2>ESTADO: {boleto.estado}</h2>
-      <button>PERFORAR</button>
-    </div>
+      {boleto.estado === "ACTIVO" && <button onClick={desactivarBoleto}>PERFORAR</button>}
+      </div>
   );
 }
