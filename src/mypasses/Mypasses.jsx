@@ -49,7 +49,7 @@ export const Mypasses = () => {
 
     // Función para generar el código QR
     const generarCodigoQR = async (key) => {
-        const textoQR = `localhost:5173/boleto/${key}`;
+        const textoQR = `localhost:5173/${key}`;
         try {
             const qrCodeDataURL = await QRCode.toDataURL(textoQR);
             return qrCodeDataURL;

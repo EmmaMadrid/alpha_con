@@ -20,7 +20,7 @@ export const AppRouter = () => {
             <Route path='contact' element= {<Contactpage/>} />
             <Route path='mypasses' element= {<Mypasses/>} />
             <Route path='pago' element= {<Pago/>} />
-            <Route path='/boleto/:folio' element={<Rutaqr />} />
+            <Route path=':folio' element={<Rutaqr />} />
 
         </Routes>
     </>
