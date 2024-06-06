@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&display=swap');
+
 .cuadro {
-    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.6);
     padding: 3rem;
     border-radius: 8px; 
     text-align: center;
@@ -32,20 +34,57 @@
     text-align: center;
 }
 
-.img-ticket {
+.img-ticketN {
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-.tipo-ticket {
-    font-size: 1.5em;
-    margin: 10px 0;
+.img-ticketF {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
+
+.img-ticketV {
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+
+.tipo-ticketN {
+    font-size: 3.5em;
+    margin: 10px 0;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.tipo-ticketF{
+    font-size: 3.5em;
+    margin: 10px 0;
+    text-shadow: 0 0 10px rgba(255, 251, 0, 0.979), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    font-family: 'Big Shoulders Display', sans-serif;
+}
+
+.tipo-ticketV {
+    font-size: 3.5em;
+    margin: 10px 0;
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: bold;  
+    text-shadow: 0 0 10px rgba(245, 7, 233, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+
 
 .precio-ticket {
     font-size: 1.2em;
     margin: 10px 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 .comprar-boleto {
@@ -53,7 +92,7 @@
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1em;
     cursor: pointer;
     text-transform: uppercase;
@@ -64,5 +103,5 @@
 }
 
 .todo{
-
+    
 }

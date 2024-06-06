@@ -43,23 +43,24 @@ export const Pago = () => {
       <h1 className='titulo-pago'>Compra tus boletos</h1>
       <div className='cuadro'>
         <div className='ticket'>
-          <img className='img-ticket' src='src/assets/images/normal.png' alt='normal pass'/>
-          <div className='tipo-ticket'>Normal Pass</div>
-          <div className='precio-ticket'>1500</div>
+          
+          <img className='img-ticketN' src='src/assets/images/normal.png' alt='normal pass'/>
+          <div className='tipo-ticketN'>Normal Pass</div>
+          <div className='precio-ticket'>$100</div>
           <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
         </div>
 
         <div className='ticket'>
-          <img className='img-ticket' src='src/assets/images/fast.png' alt='fastpass'/>
-          <div className='tipo-ticket'>Fast Pass</div>
-          <div className='precio-ticket'>1500</div>
+          <img className='img-ticketF' src='src/assets/images/fast.png' alt='fastpass'/>
+          <div className='tipo-ticketF'>Fast Pass</div>
+          <div className='precio-ticket'>$500</div>
           <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
         </div>
 
         <div className='ticket'>
-          <img className='img-ticket' src='src/assets/images/vip.png' alt='vip pass'/>
-          <div className='tipo-ticket'>VIP Pass</div>
-          <div className='precio-ticket'>1500</div>
+          <img className='img-ticketV' src='src/assets/images/vip.png' alt='vip pass'/>
+          <div className='tipo-ticketV'>VIP Pass</div>
+          <div className='precio-ticket'>$1000</div>
           <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
         </div>
       </div>
