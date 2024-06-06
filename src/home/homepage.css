@@ -28,8 +28,8 @@
     align-items: center;
   }
   .titulo{
-    width: 100%;
-    width: 450px;
+    max-width: 100%;
+    height: auto;
   }
   p{
     font-size: 22px;
