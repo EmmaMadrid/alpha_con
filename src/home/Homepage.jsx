@@ -15,7 +15,7 @@ export const Homepage = () => {
         <Link to="/pago" className="btn">Comprar boletos</Link>
       </div>
       
-    </div>
+    </div> 
     
   );
 };

@@ -11,12 +11,13 @@ export const Mypasses = () => {
     const [qrCodes, setQrCodes] = useState({});
     const [loading, setLoading] = useState(true);
     const [user] = useAuthState(auth);
-    /* const uid = user?.uid; */
+    const uid = user?.uid;
+
 
     useEffect(() => {
         const fetchData = async () => {
             
-
+            
             try {
                 const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos.json`);
                 const data = response.data;
@@ -44,7 +45,7 @@ export const Mypasses = () => {
         };
 
         fetchData();
-    }, []);
+    }, [uid]);
 
     // Función para generar el código QR
     const generarCodigoQR = async (key) => {
