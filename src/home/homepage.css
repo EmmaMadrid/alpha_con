@@ -17,7 +17,7 @@
   .event_image img{
     border-radius: 15px;
     width: 100%;
-    width: 550px ;
+    height: auto;
   }
   .content {
     margin-left: 20px;
