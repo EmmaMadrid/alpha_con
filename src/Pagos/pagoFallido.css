@@ -14,7 +14,7 @@
     color: white;           
     padding: 10px 20px;   
     text-decoration: none;  
-    border-radius: 5px;     
+    border-radius: 16px;     
     margin-top: 15px;    
     transition: background-color 0.3s ease; 
   }
@@ -26,6 +26,6 @@
   .pago-fallido-container img {
     display: block;    
     margin: 20px auto;  
-    max-width: 100%;     
+    max-width: 40%;     
     height: auto;      
   }

@@ -10,7 +10,7 @@ export const PagoFallido = () => {
   return (
     <div className='pago-fallido-container'>
       <h1>¡Pago fallido!</h1>
-      <img src="alpha_con/src/assets/images/rechazado.png" alt="" />
+      <div className='tacha'><img src="../src/assets/images/rechazado.png" alt="rechazado"/></div>
       <p>Por alguna razon esta madre no funciono.</p>
       <Link to='/Pago'>Atras</Link>
     </div>
