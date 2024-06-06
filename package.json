@@ -26,8 +26,6 @@
     "react-router-dom": "^6.23.1",
     "stripe": "^15.9.0",
     "sweetalert2": "^11.11.0",
-
-
     "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {

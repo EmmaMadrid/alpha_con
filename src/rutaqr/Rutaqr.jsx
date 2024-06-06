@@ -27,6 +27,11 @@ export function Rutaqr() {
   return (
     <div className="rutaqr-container">
       <h2 className="rutaqr-title">FOLIO DEL BOLETO: {folio}</h2>
+      <h2>FECHA: {boleto.fecha}</h2>
+      <h2>HORA: {boleto.hora}</h2>
+      <h2>NOMBRE: {boleto.nombre}</h2>
+      <h2>TIPO DE BOLETO: {boleto.tipoBoleto}</h2>
+      <h2>ESTADO: {boleto.estado}</h2>
       <button>PERFORAR</button>
     </div>
   );
