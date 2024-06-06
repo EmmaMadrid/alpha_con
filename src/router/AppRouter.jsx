@@ -7,7 +7,9 @@ import { Contactpage } from '../contact/Contactpage'
 import { Mypasses } from '../mypasses/Mypasses'
 import { Route, Routes } from 'react-router-dom'
 import { Rutaqr } from '../rutaqr/Rutaqr';
-import { Pago } from '../Pagos/Pago'
+import { Pago } from '../Pagos/Pago';
+import { PagoExitoso } from '../Pagos/pagoExitoso';
+import { PagoFallido } from '../Pagos/pagoFallido';
 
 export const AppRouter = () => {
   return (
@@ -21,6 +23,8 @@ export const AppRouter = () => {
             <Route path='mypasses' element= {<Mypasses/>} />
             <Route path='pago' element= {<Pago/>} />
             <Route path=':folio' element={<Rutaqr />} />
+            <Route path='PagoExitoso' element={<PagoExitoso />} />
+            <Route path='PagoFallido' element={<PagoFallido />} />
 
         </Routes>
     </>

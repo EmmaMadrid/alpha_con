@@ -1,106 +1,60 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom'
-import { collection, addDoc } from 'firebase/firestore'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-import { useEffect } from 'react'
-import { getDocs, doc, deleteDoc } from 'firebase/firestore'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { db } from '../firebaseConfig/firebase'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { loadStripe } from '@stripe/stripe-js';
 
-const MySwal = withReactContent(Swal)
+const MySwal = withReactContent(Swal);
 
+const handlePagarClick = async () => {
+  const stripe = await loadStripe('pk_test_51P3tpSCExtLBu1XZ5cBhS37icvXqLIIrW9ZdJYLWcumHCd5MGnUmdxXpp8U07z7ODP8GFFqXl1NyRl2pf3eqUFA600hn1IbqP8');
 
-export const Pago = () => {
-  // 1
-  const [products, setProducts] = useState([])
-  // 2
-  const productsCollection = collection(db, "products")
-  // 3
-  const getProducts = async () => {
-    const data = await getDocs(productsCollection)
-    setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-  }
-  // 4
-  const deleteProduct = async (id) => {
-    const productDoc = doc(db, "products", id)
-    await deleteDoc(productDoc)
-    getProducts()
-  }
+  if (stripe) {
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: 'price_1POaoVCExtLBu1XZSzMVBgCK', quantity: 1 }],
+      mode: 'payment',
+      successUrl: 'http://localhost:5173/PagoExitoso',
+      cancelUrl: 'http://localhost:5173/PagoFallido',
+    });
 
-  // 5
-  const confirmDelete = (id) => {
-    Swal.fire({
-      title: "Estas seguro?",
-      text: "Esta accion no se puede deshacer!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Si, eliminar!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        deleteProduct(id)
-        Swal.fire({
-          title: "Eliminado!",
-          text: "El producto ha sido eliminado.",
-          icon: "Correcto!"
-        });
-      }
+    if (error) {
+      console.error('Error al redirigir a la pasarela de pago:', error);
+      MySwal.fire({
+        title: 'Error',
+        text: 'Hubo un problema al redirigir a la pasarela de pago.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+  } else {
+    console.error('Stripe no se ha cargado correctamente');
+    MySwal.fire({
+      title: 'Error',
+      text: 'No se pudo cargar Stripe. Por favor, inténtelo de nuevo más tarde.',
+      icon: 'error',
+      confirmButtonText: 'OK'
     });
   }
-  // 6 
-  useEffect(() => {
-    getProducts()
-  }, [])
-  // 7
+};
+
+export const Pago = () => {
   return (
-    <div className='container' style={{
-      background: '#FF8008', /* fallback for old browsers */
-      background: '-webkit-linear-gradient(to right, #FFC837, #FF8008)', /* Chrome 10-25, Safari 5.1-6 */
-      background: 'linear-gradient(to right, #FFC837, #FF8008)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }}>
-      <div className='row'>
-        <div className='col'>
-          <div className='card'>
+    <div>
+      <br />
+      <div className='row justify-content-center'>
+        <div className='col-md-4'>
+          <div className='card mt-4'>
+            <img src="https://example.com/imagen.jpg" className='card-img-top' alt='Boleto' />
             <div className='card-body'>
-
-
-              <table className='table table-darktable-hover'>
-                <thead>
-                  <tr>
-                    <th>Imagenes 🖼️ </th>
-                    <th>Producto ✨ </th>
-                    <th>Descripcion 📝 </th>
-                    <th>Stock 🔢 </th>
-                    <th>Precio 💵 </th>
-                    <th>Acciones ⚙️ </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product.id}>
-                      <td><img src={product.img} alt="Product" style={{ width: '100px', height: 'auto' }} /></td>
-                      <td>{product.Producto}</td>
-                      <td>{product.descripcion}</td>
-                      <td>{product.stock}</td>
-                      <td>{product.Precio}</td>
-                      <td>
-                        <Link to={`/edit/${product.id}`} className='btn btn-light'><i className="fa-solid fa-pencil"></i></Link>
-                        <button onClick={() => { confirmDelete(product.id) }} className='btn btn-danger'><i className="fa-solid fa-trash"></i></button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <h5 className='card-title'>Boleto</h5>
+              <p className='card-text'>Descripción del boleto.</p>
+              <p className='card-text'>Precio: $150</p>
+              <button className='btn btn-primary' onClick={handlePagarClick}>Pagar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pago
+export default Pago;
