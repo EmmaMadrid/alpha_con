@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom';
 
 export const PagoExitoso = () => {
 
-    
-
-
   return (
     <div>
       <h1>¡Pago exitoso!</h1>

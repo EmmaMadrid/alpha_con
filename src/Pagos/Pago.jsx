@@ -2,6 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { loadStripe } from '@stripe/stripe-js';
+import './pago.css';
 
 const MySwal = withReactContent(Swal);
 
@@ -38,23 +39,32 @@ const handlePagarClick = async () => {
 
 export const Pago = () => {
   return (
-    <div>
-      <br />
-      <div className='row justify-content-center'>
-        <div className='col-md-4'>
-          <div className='card mt-4'>
-            <img src="https://example.com/imagen.jpg" className='card-img-top' alt='Boleto' />
-            <div className='card-body'>
-              <h5 className='card-title'>Boleto</h5>
-              <p className='card-text'>Descripción del boleto.</p>
-              <p className='card-text'>Precio: $150</p>
-              <button className='btn btn-primary' onClick={handlePagarClick}>Pagar</button>
-            </div>
-          </div>
+    <div className='todo'>
+      <h1 className='titulo-pago'>Compra tus boletos</h1>
+      <div className='cuadro'>
+        <div className='ticket'>
+          <img className='img-ticket' src='src/assets/images/normal.png' alt='normal pass'/>
+          <div className='tipo-ticket'>Normal Pass</div>
+          <div className='precio-ticket'>1500</div>
+          <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
+        </div>
+
+        <div className='ticket'>
+          <img className='img-ticket' src='src/assets/images/fast.png' alt='fastpass'/>
+          <div className='tipo-ticket'>Fast Pass</div>
+          <div className='precio-ticket'>1500</div>
+          <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
+        </div>
+
+        <div className='ticket'>
+          <img className='img-ticket' src='src/assets/images/vip.png' alt='vip pass'/>
+          <div className='tipo-ticket'>VIP Pass</div>
+          <div className='precio-ticket'>1500</div>
+          <button className='comprar-boleto' onClick={handlePagarClick}>Comprar</button>
         </div>
       </div>
-    </div>
-  );
+    </div>  
+  ); 
 };
 
 export default Pago;

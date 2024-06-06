@@ -22,4 +22,4 @@ export const Contactpage = () => {
   );
 };
 
-export default Contactpage;
+export default Contactpage; 
