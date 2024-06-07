@@ -17,7 +17,7 @@ export const Homepage = () => {
         <Link to="/pago" className="btn">Comprar boletos</Link>
       </div>
       </div>
-      <h1>INVITADOS | 2024</h1>
+      <h1 className='invitados'>INVITADOS | 2024</h1>
       <div className="image-gallery">
         <div className="gallery-item">
           <img src="src/assets/images/invitado1.jpg" alt="Imagen 1" />

@@ -195,3 +195,7 @@ h1 {
   font-size: 30px;
   margin-bottom: 5px;
 }
+
+.invitados{
+  -webkit-text-stroke: 2px black;
+}
