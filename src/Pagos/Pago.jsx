@@ -73,7 +73,7 @@ export const Pago = () => {
         <Ticket 
           imgSrc='src/assets/images/vip.png' 
           altText='vip pass' 
-          ticketType='VIP Pass' 
+          ticketType='VIP Pass'  
           price={1000} 
           onClick={() => redirectToCheckout('price_1POnPuCExtLBu1XZrDyDpXmn', 'VIP Pass')}
         />

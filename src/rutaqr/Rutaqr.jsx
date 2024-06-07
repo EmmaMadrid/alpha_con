@@ -1,8 +1,7 @@
-// Rutaqr.jsx
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-
+import './rutaqr.css'
 
 
 export function Rutaqr() {
@@ -38,13 +37,25 @@ export function Rutaqr() {
   
 
   return (
-    <div className="rutaqr-container">
-      <h2 className="rutaqr-title">FOLIO DEL BOLETO: {folio}</h2>
-      <h2>FECHA: {boleto.fecha}</h2>
+    <div className="container">
+      <h2 className='folio'>FOLIO DEL BOLETO: </h2>
+      <h3>{folio}</h3>
+
+      <h2>FECHA: </h2>
+      <h3>{boleto.fecha}</h3>
+
       <h2>HORA: {boleto.hora}</h2>
-      <h2>NOMBRE: {boleto.nombre}</h2>
-      <h2>TIPO DE BOLETO: {boleto.tipoBoleto}</h2>
-      <h2>ESTADO: {boleto.estado}</h2>
+      <h3>{boleto.hora}</h3>
+
+      <h2>NOMBRE: </h2>
+      <h3>{boleto.nombre}</h3>
+
+      <h2>TIPO DE BOLETO: </h2>
+      <h3>{boleto.tipoBoleto}</h3>
+      
+      <h2>ESTADO: </h2>
+      <h3 className={boleto.estado === "ACTIVO" ? 'estado-activo' : 'estado-desactivado'}>{boleto.estado}</h3>
+
       {boleto.estado === "ACTIVO" && <button onClick={desactivarBoleto}>PERFORAR</button>}
       </div>
   );
