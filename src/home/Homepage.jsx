@@ -13,7 +13,7 @@ export const Homepage = () => {
       </div>
       <div className="content">
         <img className='titulo' src=".\src\assets\images\alpha.png" alt="Alpha Con" />
-        <p>Alpha Con es la convención de anime más grande de San Luis Río Colorado, Sonora. Celebramos el amor por el anime, manga, videojuegos, cosplay y cultura pop. Ofrecemos talleres educativos, conferencias, concursos de cosplay, exhibiciones de artistas y vendedores de mercancía exclusiva. Todos son bienvenidos en nuestra convención inclusiva y diversa. ¡Únete a nuestra comunidad apasionada de fanáticos del anime y la cultura pop en Alpha Con!</p>
+        <p style={{textAlign: "justify"}}>Alpha Con es la convención de anime más grande de San Luis Río Colorado, Sonora. Celebramos el amor por el anime, manga, videojuegos, cosplay y cultura pop. Ofrecemos talleres educativos, conferencias, concursos de cosplay, exhibiciones de artistas y vendedores de mercancía exclusiva. Todos son bienvenidos en nuestra convención inclusiva y diversa. ¡Únete a nuestra comunidad apasionada de fanáticos del anime y la cultura pop en Alpha Con!</p>
         <Link to="/pago" className="btn">Comprar boletos</Link>
       </div>
       </div>

@@ -42,6 +42,9 @@ export function Rutaqr() {
       <h2 className='folio'>FOLIO DEL BOLETO: </h2>
       <h3>{folio}</h3>
 
+      <h2>ID DEL BOLETO: </h2>
+      <h3>{boleto.idBoleto}</h3>
+
       <h2>FECHA: </h2>
       <h3>{boleto.fechaEvento}</h3>
 

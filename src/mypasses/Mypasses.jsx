@@ -12,20 +12,29 @@ export const Mypasses = () => {
   const handleSearchClick = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos/${searchTerm}.json`);
-      const boleto = response.data;
-      setData(boleto);
+      const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos.json`);
+      const boletos = response.data;
 
-      
-      const qrCodeDataURL = await generarCodigoQR(boleto);
-      setQrCode(qrCodeDataURL);
+      // Buscar el boleto con el idBoleto especificado
+      const boleto = Object.values(boletos).find(boleto => boleto.idBoleto === searchTerm);
+  
+      if (boleto) {
+        setData(boleto);
+  
+        const qrCodeDataURL = await generarCodigoQR(boleto);
+        setQrCode(qrCodeDataURL);
+      } else {
+        console.error("No se encontró ningún boleto con ese idBoleto");
+        setData(null);
+        setQrCode('');
+      }
     } catch (error) {
       console.error("Error al obtener los datos", error);
       setData(null);
       setQrCode('');
     } finally {
       setLoading(false);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -37,16 +46,15 @@ export const Mypasses = () => {
     }
   }, [searchTerm]);
 
-  const generarCodigoQR = async (boleto) => {
-    
-    const textoQR = JSON.stringify(boleto);
 
+  // AQUI SE GENERA EL QR CON LA RUTA
+  const generarCodigoQR = async (key) => {
     try {
-      
-      const qrCodeDataURL = await QRCode.toDataURL(textoQR);
+      const url = `http://localhost:5173/${key}`;
+      const qrCodeDataURL = await QRCode.toDataURL(url);
       return qrCodeDataURL;
-    } catch (err) {
-      console.error("Error generando el código QR", err);
+    } catch (error) {
+      console.error("Error al generar el código QR", error);
       return null;
     }
   };

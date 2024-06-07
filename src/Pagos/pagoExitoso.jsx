@@ -7,6 +7,8 @@ export const PagoExitoso = () => {
   const [ticketType, setTicketType] = useState(null);
   const [qrCodeDataURL, setQrCodeDataURL] = useState(null);
   const [folio, setFolio] = useState(null); // Estado para almacenar el folio del boleto
+  const [idBoleto, setIdBoleto] = useState(null); // Agrega esta línea
+
 
   useEffect(() => {
     const storedTicketType = localStorage.getItem('ticketType');
@@ -15,7 +17,13 @@ export const PagoExitoso = () => {
     if (storedTicketType) {
       setTicketType(storedTicketType);
 
+            // Generar un número aleatorio de 6 dígitos
+            const idBoleto = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            console.log('ID del boleto:', idBoleto);
+            setIdBoleto(idBoleto);
+
       const boleto = {
+        idBoleto: idBoleto,
         estado: "ACTIVO",
         fechaEvento: "23 de Noviembre del 2024", // Fecha actual
         horaEvento: "5 pm",
@@ -57,6 +65,8 @@ export const PagoExitoso = () => {
         {ticketType && <p>Has comprado un {ticketType}</p>}
         {folio && <p className='most-folio'>Folio del boleto: <br></br></p>}
         <p className='folioQR'>{folio}</p>
+        <p className='most-folio'>ID DE TU BOLETO</p>
+        <p>{idBoleto}</p>
         {qrCodeDataURL && (
           <img src={qrCodeDataURL} alt="QR Code" />
         )}
