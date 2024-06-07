@@ -85,7 +85,7 @@ export const Mypasses = () => {
               )}
             </div>
           )}
-          {!loading && !data && searchTerm && <p>No se encontró ningún boleto con el folio {searchTerm}</p>}
+          {!loading && !data && searchTerm && <p>No se encontró ningún boleto con el folio</p>}
         </div>
       </div>
     </div>
