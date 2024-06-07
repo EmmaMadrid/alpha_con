@@ -3,8 +3,17 @@
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
-    max-width: 400px;
-    height: 300px;
+    max-width: 600px;
+    height: auto;
     width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(29, 28, 28, 0.5);
+    margin-right: 60px;
+  }
+  .most-folio{
+    color: aliceblue;
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  .folioQR{
+    color: bisque;
   }

@@ -55,7 +55,8 @@ export const PagoExitoso = () => {
       <div className="boxxx">
         <h1>¡Pago Exitoso!</h1>
         {ticketType && <p>Has comprado un {ticketType}</p>}
-        {folio && <p>Folio del boleto: {folio}</p>}
+        {folio && <p className='most-folio'>Folio del boleto: <br></br></p>}
+        <p className='folioQR'>{folio}</p>
         {qrCodeDataURL && (
           <img src={qrCodeDataURL} alt="QR Code" />
         )}
