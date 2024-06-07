@@ -25,7 +25,7 @@ export const Mypasses = () => {
       setQrCode('');
     } finally {
       setLoading(false);
-    }
+    } 
   };
 
   useEffect(() => {
