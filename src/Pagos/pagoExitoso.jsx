@@ -17,6 +17,6 @@ export const PagoExitoso = () => {
       {ticketType && <p>Has comprado un {ticketType}</p>}
     </div>
   );
-};
+};  
 
 export default PagoExitoso;
