@@ -6,7 +6,7 @@ export const Contactpage = () => {
   return (
     <div className="home1">
     <div className="homeb-box">
-        <h2>Contactanos</h2>
+        <h2>Contactanos !!</h2>
         <div className="logo-container">
           <Link to="https://www.instagram.com/alphacon.sanluis" target="_blank">
             <img src="src/assets/images/insta-logo.webp" alt="" className='logo-insta'/>
@@ -15,7 +15,7 @@ export const Contactpage = () => {
             <img src="src/assets/images/face-logo.png" alt="" className='logo-face'/>
           </Link>
         </div>
-        <h3>Correo</h3>
+        <h3>Correo Electronico</h3>
         <a href="mailto:contacto@alphacon.com.mx">contacto@alphacon.com.mx !</a>
       </div>
     </div> 
