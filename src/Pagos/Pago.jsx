@@ -9,7 +9,9 @@ const STRIPE_PUBLIC_KEY = 'pk_test_51P3tpSCExtLBu1XZ5cBhS37icvXqLIIrW9ZdJYLWcumH
 const SUCCESS_URL = 'http://localhost:5173/PagoExitoso';
 const CANCEL_URL = 'http://localhost:5173/PagoFallido';
 
-const redirectToCheckout = async (priceId) => {
+const redirectToCheckout = async (priceId, ticketType) => {
+  localStorage.setItem('ticketType', ticketType);  // Guardar el tipo de boleto
+
   const stripe = await loadStripe(STRIPE_PUBLIC_KEY);
 
   if (stripe) {
@@ -43,7 +45,7 @@ const redirectToCheckout = async (priceId) => {
 const Ticket = ({ imgSrc, altText, ticketType, price, onClick }) => (
   <div className='ticket'>
     <img className='img-ticket' src={imgSrc} alt={altText} />
-    <div className='tipo-ticket'>{ticketType}</div>
+    <div className={`tipo-ticket tipo-ticket${ticketType}`}>{ticketType}</div>
     <div className='precio-ticket'>${price}</div>
     <button className='comprar-boleto' onClick={onClick}>Comprar</button>
   </div>
@@ -59,21 +61,21 @@ export const Pago = () => {
           altText='normal pass' 
           ticketType='Normal Pass' 
           price={150} 
-          onClick={() => redirectToCheckout('price_1POaoVCExtLBu1XZSzMVBgCK')}
+          onClick={() => redirectToCheckout('price_1POaoVCExtLBu1XZSzMVBgCK', 'Normal Pass')}
         />
         <Ticket 
           imgSrc='src/assets/images/fast.png' 
           altText='fast pass' 
           ticketType='Fast Pass' 
           price={500} 
-          onClick={() => redirectToCheckout('price_1POnPCCExtLBu1XZEhzek2fe')}
+          onClick={() => redirectToCheckout('price_1POnPCCExtLBu1XZEhzek2fe', 'Fast Pass')}
         />
         <Ticket 
           imgSrc='src/assets/images/vip.png' 
           altText='vip pass' 
           ticketType='VIP Pass' 
           price={1000} 
-          onClick={() => redirectToCheckout('price_1POnPuCExtLBu1XZrDyDpXmn')}
+          onClick={() => redirectToCheckout('price_1POnPuCExtLBu1XZrDyDpXmn', 'VIP Pass')}
         />
       </div>
     </div>
