@@ -11,7 +11,7 @@ export const PagoFallido = () => {
     <div className='pago-fallido-container'>
       <h1>¡Pago fallido!</h1>
       <div className='tacha'><img src="../src/assets/images/rechazado.png" alt="rechazado"/></div>
-      <p>Por alguna razon esta madre no funciono.</p>
+      <p>El pago no se pudo procesar, intentelo nuevamente.</p>
       <Link to='/Pago'>Atras</Link>
     </div>
   );
