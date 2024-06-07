@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import './pagoExitoso.css';
+import axios from 'axios'
 
 export const PagoExitoso = () => {
   const [ticketType, setTicketType] = useState('');
@@ -11,10 +13,29 @@ export const PagoExitoso = () => {
     }
   }, []);
 
+  const boleto = {
+    estado: "ACTIVO",
+    fecha: "hoy", // Fecha actual
+    hora: "5 pm",
+    nombre: "Ricardo",
+    tipoBoleto: "VIP",
+  };
+  
+  axios.post('https://alpha-con-default-rtdb.firebaseio.com/boletos.json', boleto)
+    .then(response => {
+      console.log('Boleto agregado correctamente');
+    })
+    .catch(error => {
+      console.error('Error al agregar boleto:', error);
+    });
+  
+
   return (
     <div className='pago-exitoso'>
-      <h1>¡Pago Exitoso!</h1>
-      {ticketType && <p>Has comprado un {ticketType}</p>}
+      <div className="boxxx">
+        <h1>¡Pago Exitoso!</h1>
+        {ticketType && <p>Has comprado un {ticketType}</p>}
+      </div>
     </div>
   );
 };  
