@@ -4,15 +4,14 @@
 .cuadro {
     background: rgba(0, 0, 0, 0.6);
     padding: 3rem;
-    border-radius: 8px; 
+    border-radius: 8px;
     text-align: center;
     width: 100%;
-    max-width: 1200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0); 
+    max-width: 1400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 1400px;
     margin-bottom: 10%;
 }
 
@@ -33,26 +32,14 @@
     text-align: center;
 }
 
-.img-ticketN {
+.img-ticket {
     width: 100%;
     height: auto;
     border-radius: 10px;
-}
-
-.img-ticketF {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.img-ticketV {
     margin-top: 10px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
 }
 
-.tipo-ticketN {
+.tipo-ticket {
     font-size: 3.5em;
     margin: 10px 0;
     font-family: 'Big Shoulders Display', sans-serif;
@@ -60,19 +47,15 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
-.tipo-ticketF{
-    font-size: 3.5em;
-    margin: 10px 0;
+.tipo-ticketN {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.tipo-ticketF {
     text-shadow: 0 0 10px rgba(255, 251, 0, 0.979), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
-    font-weight: bold;
-    font-family: 'Big Shoulders Display', sans-serif;
 }
 
 .tipo-ticketV {
-    font-size: 3.5em;
-    margin: 10px 0;
-    font-family: 'Big Shoulders Display', sans-serif;
-    font-weight: bold;  
     text-shadow: 0 0 10px rgba(245, 7, 233, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
