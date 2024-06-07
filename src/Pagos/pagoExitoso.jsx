@@ -18,7 +18,7 @@ export const PagoExitoso = () => {
     fecha: "hoy", // Fecha actual
     hora: "5 pm",
     nombre: "Ricardo",
-    tipoBoleto: "VIP",
+    tipoBoleto: ticketType,
   };
   
   axios.post('https://alpha-con-default-rtdb.firebaseio.com/boletos.json', boleto)
