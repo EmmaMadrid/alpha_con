@@ -13,6 +13,7 @@ export function Rutaqr() {
       try {
         const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos/${folio}.json`);
         setBoleto(response.data);
+        console.log(boleto)
         console.log(folio)
         console.log(response.data)
       } catch (err) {
@@ -42,13 +43,10 @@ export function Rutaqr() {
       <h3>{folio}</h3>
 
       <h2>FECHA: </h2>
-      <h3>{boleto.fecha}</h3>
+      <h3>{boleto.fechaEvento}</h3>
 
       <h2>HORA: {boleto.hora}</h2>
-      <h3>{boleto.hora}</h3>
-
-      <h2>NOMBRE: </h2>
-      <h3>{boleto.nombre}</h3>
+      <h3>{boleto.horaEvento}</h3>
 
       <h2>TIPO DE BOLETO: </h2>
       <h3>{boleto.tipoBoleto}</h3>
