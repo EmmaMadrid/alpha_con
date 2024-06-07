@@ -78,7 +78,7 @@ export const Mypasses = () => {
             <input
               className='fol'
               type="text"
-              placeholder="Buscar por folio o ID"
+              placeholder="Buscar por  ID"
               value={searchTerm}
               onChange={handleSearch}
             />
