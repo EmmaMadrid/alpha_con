@@ -29,7 +29,6 @@ body.register-page {
     position: absolute;
     width: 70px;
     height: 70px;
-    background: url('../src/assets/images/tl.webp') no-repeat;
     background-size: 70px;
 }
 
