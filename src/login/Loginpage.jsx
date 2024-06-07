@@ -30,15 +30,15 @@ export const Loginpage = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Login</h2>
-        <p>Sign in to continue</p>
+        <h2>Iniciar Sesion</h2>
+        <p>Inicia sesion para continuar</p>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">CORREO ELECTRÓNICO</label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="correo electronico"
+            placeholder="Correo electronico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -48,11 +48,12 @@ export const Loginpage = () => {
             type="password"
             id="password"
             name="password"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           
-          <button type="submit">Log in</button>
+          <button type="submit">Iniciar Sesion</button>
         </form>
       </div>
     </div>

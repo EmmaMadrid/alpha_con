@@ -46,19 +46,19 @@ export const Navbar = () => {
         <img src="src/assets/images/alpha-logo.png" alt="Logo" onClick={handleLogoHome}/>
       </div>
       <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
-        <Link to="/" onClick={closeMenu}>Home</Link>
-        <Link to="/Pago" onClick={closeMenu}>Buy Passes</Link>
-        <Link to="/contact" onClick={closeMenu}>Contact Us</Link>
-        <Link to="/mypasses" onClick={closeMenu}>My Passes</Link>
+        <Link to="/" onClick={closeMenu}>Inicio</Link>
+        <Link to="/Pago" onClick={closeMenu}>Comprar pases</Link>
+        <Link to="/contact" onClick={closeMenu}>Contacto</Link>
+        <Link to="/mypasses" onClick={closeMenu}>Buscar Boleto</Link>
         {user ? (
           <div className={`navbar-user ${isOpen ? '' : 'desktop'}`}>
             <span className="navbar-username">Hola!, {user.displayName || user.email}</span>
-            <button className="navbar-signout" onClick={handleSignOut}>Sign Out</button>
+            <button className="navbar-signout" onClick={handleSignOut}>Cerrar Sesion</button>
           </div>
         ) : (
           <>
-            <Link to="/login" className="navbar-signin" onClick={closeMenu}>Sign In</Link>
-            <Link to="/register" className="navbar-signup" onClick={closeMenu}>Sign Up</Link>
+            <Link to="/login" className="navbar-signin" onClick={closeMenu}>Iniciar Sesion</Link>
+            <Link to="/register" className="navbar-signup" onClick={closeMenu}>Registrarse</Link>
           </>
         )}
       </div>

@@ -43,8 +43,8 @@ export const Registerpage = () => {
   return (
     <div className="register-container">
       <div className="register-box">
-        <h2>Sign Up</h2>
-        <p>Create an account</p>
+        <h2>Registrarse</h2>
+        <p>Crear una cuenta</p>
         {error && <p className=" error-message"
         style={{color: "red"}}
         >{error}</p>}
@@ -54,7 +54,7 @@ export const Registerpage = () => {
             type="text"
             id="fullname"
             name="fullname"
-            placeholder="tu nombre"
+            placeholder="Tu nombre"
             value={fullname}
             onChange={(e) => setFullname(e.target.value)}
           />
@@ -64,7 +64,7 @@ export const Registerpage = () => {
             type="email"
             id="email"
             name="email"
-            placeholder="tu correo electrónico"
+            placeholder="Tu correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -74,6 +74,7 @@ export const Registerpage = () => {
             type="password"
             id="password"
             name="password"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
