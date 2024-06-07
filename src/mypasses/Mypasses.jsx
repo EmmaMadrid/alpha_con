@@ -8,41 +8,41 @@ export const Mypasses = () => {
   const [qrCode, setQrCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [error, setError] = useState(null); 
 
   const handleSearchClick = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`https://alpha-con-default-rtdb.firebaseio.com/boletos/${searchTerm}.json`);
       const boleto = response.data;
-      setData(boleto);
-
       
-      const qrCodeDataURL = await generarCodigoQR(boleto);
-      setQrCode(qrCodeDataURL);
+      if (boleto) {
+        setData(boleto);
+        const qrCodeDataURL = await generarCodigoQR(boleto);
+        setQrCode(qrCodeDataURL);
+      } else {
+        setError(`No se encontró ningún boleto con el folio ${searchTerm}`);
+      }
     } catch (error) {
       console.error("Error al obtener los datos", error);
-      setData(null);
-      setQrCode('');
+      setError("Error al obtener los datos. Por favor, inténtalo de nuevo más tarde.");
     } finally {
       setLoading(false);
-    } 
+    }
   };
 
   useEffect(() => {
-    if (searchTerm.trim() !== '') {
-      handleSearchClick();
-    } else {
+    if (searchTerm.trim() === '') {
+      
+      setError(null);
       setData(null);
       setQrCode('');
     }
   }, [searchTerm]);
 
   const generarCodigoQR = async (boleto) => {
-    
     const textoQR = JSON.stringify(boleto);
-
     try {
-      
       const qrCodeDataURL = await QRCode.toDataURL(textoQR);
       return qrCodeDataURL;
     } catch (err) {
@@ -72,6 +72,7 @@ export const Mypasses = () => {
             </button>
           </div>
           {loading && <p>Cargando...</p>}
+          {error && <p>{error}</p>} {}
           {data && (
             <div>
               {Object.entries(data).map(([key, value]) => (
@@ -85,7 +86,6 @@ export const Mypasses = () => {
               )}
             </div>
           )}
-          {!loading && !data && searchTerm && <p>No se encontró ningún boleto con el folio {searchTerm}</p>}
         </div>
       </div>
     </div>
