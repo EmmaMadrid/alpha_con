@@ -67,7 +67,7 @@ export const Mypasses = () => {
               value={searchTerm}
               onChange={handleSearch}
             />
-            <button className="search-button" onClick={handleSearchClick}>
+            <button className="search-button" onClick={handleSearchClick} disabled={!searchTerm.trim()}>
               <strong>Buscar</strong>
             </button>
           </div>
